@@ -3,6 +3,7 @@ package app;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
+import org.apache.camel.PropertyInject;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
@@ -38,6 +39,12 @@ public class ExampleRouteTest extends CamelTestSupport {
 
     @Value("${toUser}")
     private String toUser;
+
+    @PropertyInject("{{fromUser}}")
+    private String fromUserPropertyInject;
+
+    @PropertyInject("{{toUser}}")
+    private String toUserPropertyInject;
 
     @Test
     public void testWithContent() throws Exception{
