@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.springframework.boot' version '1.5.10.RELEASE'
+}
+
+
+version = '1.0.0'
+
+def compatibilityVersion = 1.8
+sourceCompatibility = compatibilityVersion
+targetCompatibility = compatibilityVersion
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    def camelVersion = '2.21.0'
+
+    compile 'org.springframework.boot:spring-boot-devtools'
+    compile "org.apache.camel:camel-core:${camelVersion}"
+    compile "org.apache.camel:camel-mail:${camelVersion}"
+    compile "org.apache.camel:camel-spring-boot-starter:${camelVersion}"
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile "org.apache.camel:camel-test-spring:${camelVersion}"
+    testCompile 'org.jvnet.mock-javamail:mock-javamail:1.9'
+}
