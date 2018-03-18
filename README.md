@@ -13,7 +13,7 @@ Both have values from applciation.properties
 
                     .to("smtp://localhost?from={{fromUser}}&to={{toUser}}&subject=Test+Done");
                     
-                does not. 
+does not. 
                 
                 
 You get
