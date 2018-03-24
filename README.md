@@ -1,3 +1,14 @@
+#UPDATE
+
+turns out it's because when you extend CamelTestSupport, it setup its own container, which conflict with the Soring one.
+
+the solution is
+
+1. do NOT extend extends CamelTestSupport or any base class
+2. don't declare the route in the Test, test the route in the production route builder instead
+
+---
+
 Running ExampleRouteTest method testWithContent
 
     @Value("${fromUser}")
